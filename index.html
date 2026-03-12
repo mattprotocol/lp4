@@ -729,27 +729,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 				<div class="elementor-element elementor-element-d4e84b9 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="d4e84b9" data-element_type="widget" data-e-type="widget" data-widget_type="icon-list.default">
 							<ul class="elementor-icon-list-items">
 							<li class="elementor-icon-list-item">
-											<a href="https://protocol.us/">
-
+											<a href="#" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
 											<span class="elementor-icon-list-text">Home</span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item">
-											<a href="https://protocol.us/how-it-works/">
-
-											<span class="elementor-icon-list-text">How it Works</span>
+											<a href="#whats-included" onclick="event.preventDefault();document.getElementById('whats-included').scrollIntoView({behavior:'smooth',block:'start'})">
+											<span class="elementor-icon-list-text">What's Included</span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item">
-											<a href="https://protocol.us/about-us/">
-
-											<span class="elementor-icon-list-text">About Us</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item">
-											<a href="https://protocol.us/contact/">
-
-											<span class="elementor-icon-list-text">Contact</span>
+											<a href="#your-journey" onclick="event.preventDefault();document.getElementById('your-journey').scrollIntoView({behavior:'smooth',block:'start'})">
+											<span class="elementor-icon-list-text">How It Works</span>
 											</a>
 									</li>
 						</ul>
@@ -787,21 +778,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										<span class="elementor-icon-list-text">Copyright 2026 © Protocol</span>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://protocol.us/privacy-policy/">
-
+											<a href="#" onclick="event.preventDefault();document.getElementById('lp4-privacy-modal').style.display='flex'">
 											<span class="elementor-icon-list-text">Privacy Policy</span>
 											</a>
 									</li>
 								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://protocol.us/terms-of-service/">
-
+											<a href="#" onclick="event.preventDefault();document.getElementById('lp4-tos-modal').style.display='flex'">
 											<span class="elementor-icon-list-text">Terms of Service</span>
-											</a>
-									</li>
-								<li class="elementor-icon-list-item elementor-inline-item">
-											<a href="https://protocol.us/sitemap/">
-
-											<span class="elementor-icon-list-text">Sitemap</span>
 											</a>
 									</li>
 						</ul>
@@ -897,4 +880,167 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/protocol.us\/wp-admin\/ad
 </script>
 <script src="https://protocol.us/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.35.1" id="elementor-pro-frontend-js"></script>
 <script src="https://protocol.us/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.35.1" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
-<div id="ea11y-root" class="ea11y-widget" role="complementary" aria-label="Accessibility Widget"></div></body></html>
+<div id="ea11y-root" class="ea11y-widget" role="complementary" aria-label="Accessibility Widget"></div>
+
+<!-- Privacy Policy Modal -->
+<style id="lp4-modal-css">
+.lp4-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+.lp4-modal {
+  background: #fff;
+  color: #1a1a1a;
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  font-family: "DM Sans", sans-serif;
+}
+.lp4-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 28px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.lp4-modal__header h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a1f1a;
+}
+.lp4-modal__close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0 4px;
+}
+.lp4-modal__close:hover { color: #000; }
+.lp4-modal__body {
+  padding: 28px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+}
+.lp4-modal__body h3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 24px 0 8px;
+  color: #0a1f1a;
+}
+.lp4-modal__body h3:first-child { margin-top: 0; }
+.lp4-modal__body p { margin: 0 0 12px; }
+.lp4-modal__body a { color: #2a7a5a; }
+</style>
+
+<div class="lp4-modal-overlay" id="lp4-privacy-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="lp4-modal">
+    <div class="lp4-modal__header">
+      <h2>Privacy Policy</h2>
+      <button class="lp4-modal__close" onclick="document.getElementById('lp4-privacy-modal').style.display='none'">&times;</button>
+    </div>
+    <div class="lp4-modal__body">
+      <h3>1. Information We Collect</h3>
+      <p>Protocol gathers "Name" and "Email Address" when individuals complete contact forms on the website.</p>
+
+      <h3>2. How We Use Your Information</h3>
+      <p>The practice uses collected data to respond to your inquiries and provide customer support, and to send updates if users have opted in.</p>
+
+      <h3>3. How We Protect Your Information</h3>
+      <p>Protocol implements reasonable measures to protect your personal information from unauthorized access, use, or disclosure, though no transmission method is entirely secure.</p>
+
+      <h3>4. Cookies and Tracking Technologies</h3>
+      <p>Protocol does not use cookies or other tracking technologies to monitor website visits.</p>
+
+      <h3>5. Third-Party Disclosure</h3>
+      <p>Protocol does not share personal information with external parties except when legally required or necessary to protect organizational rights.</p>
+
+      <h3>6. Your Rights</h3>
+      <p>Users may access the personal information we hold about you, request corrections, or request deletion by contacting the practice.</p>
+
+      <h3>7. Children's Privacy</h3>
+      <p>Protocol does not knowingly collect data from anyone under 13 and will promptly delete such information if discovered.</p>
+
+      <h3>8. Changes to This Privacy Policy</h3>
+      <p>Updates will be posted with revised effective dates.</p>
+
+      <h3>9. Contact</h3>
+      <p>Questions should be directed to <a href="mailto:info@protocol.us">info@protocol.us</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Terms of Service Modal -->
+<div class="lp4-modal-overlay" id="lp4-tos-modal" onclick="if(event.target===this)this.style.display='none'">
+  <div class="lp4-modal">
+    <div class="lp4-modal__header">
+      <h2>Terms of Service</h2>
+      <button class="lp4-modal__close" onclick="document.getElementById('lp4-tos-modal').style.display='none'">&times;</button>
+    </div>
+    <div class="lp4-modal__body">
+      <h3>1. Scope of Services</h3>
+      <p>Protocol provides health education, wellness guidance, and program coordination designed to support individuals in understanding and optimizing factors that may influence long-term healthspan, but does not deliver medical care.</p>
+
+      <h3>2. Independent Physician Practices</h3>
+      <p>Certain services derive from separate "Partner Practices," which maintain independent clinical judgment. Protocol bears no responsibility for medical outcomes from these providers.</p>
+
+      <h3>3. Nature of Protocol Services</h3>
+      <p>Services are designed for educational and informational purposes only and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+
+      <h3>4. Voluntary Participation and Personal Responsibility</h3>
+      <p>Members voluntarily participate and must disclose relevant health conditions before engaging in physical assessments.</p>
+
+      <h3>5. Submission of Lab Work and Personal Information</h3>
+      <p>Users confirm submitted health data is accurate, voluntarily provided, and they authorize Protocol to analyze it.</p>
+
+      <h3>6. Privacy and Confidentiality</h3>
+      <p>Personal information handling follows the Privacy Policy; protected health information may be managed under Business Associate Agreements.</p>
+
+      <h3>7. Coordination of Third-Party Services</h3>
+      <p>Protocol assists in arranging services, though external providers operate independently.</p>
+
+      <h3>8. Payment Terms</h3>
+      <p>The Longevity Audit requires advance payment; all sales are final with no refunds after purchase, regardless of participation.</p>
+
+      <h3>9. No Guarantees or Warranties</h3>
+      <p>Protocol makes no guarantees regarding specific outcomes, health improvements, or results from service participation.</p>
+
+      <h3>10. Limitation of Liability</h3>
+      <p>Protocol's liability is capped at amounts paid for applicable services.</p>
+
+      <h3>11. Intellectual Property</h3>
+      <p>All reports and materials remain Protocol's property for personal, non-commercial use only.</p>
+
+      <h3>12. Communications and Recordings</h3>
+      <p>Users consent to email, phone, and text communications; certain calls may be recorded for quality assurance.</p>
+
+      <h3>13. Governing Law and Dispute Resolution</h3>
+      <p>Delaware law governs these terms; disputes proceed to binding arbitration under American Arbitration Association rules.</p>
+
+      <h3>14. Changes to These Terms</h3>
+      <p>Updates will be posted; continued participation signals acceptance.</p>
+
+      <h3>Contact</h3>
+      <p>Questions should be directed to <a href="mailto:info@protocol.us">info@protocol.us</a> or <a href="https://protocol.us" target="_blank" rel="noopener">protocol.us</a></p>
+    </div>
+  </div>
+</div>
+
+</body></html>
