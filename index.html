@@ -872,6 +872,39 @@ var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/protocol.us\/wp-admin\/ad
 <script src="https://protocol.us/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.35.1" id="pro-elements-handlers-js"></script><svg style="display: none;" class="e-font-icon-svg-symbols"></svg>
 <div id="ea11y-root" class="ea11y-widget" role="complementary" aria-label="Accessibility Widget"></div>
 
+<!-- GCLID Capture: Google Ads conversion tracking via Stripe client_reference_id -->
+<script>
+(function() {
+  var STRIPE_BASE = 'https://buy.stripe.com/bJe9AT1nXg8jdAxewvbMQ0Q';
+  var COOKIE_NAME = 'lp4_gclid';
+  var COOKIE_DAYS = 90;
+
+  // 1. Grab gclid from URL if present
+  var params = new URLSearchParams(window.location.search);
+  var gclid = params.get('gclid');
+
+  // 2. If no gclid in URL, check cookie
+  if (!gclid) {
+    var match = document.cookie.match(new RegExp('(?:^|; )' + COOKIE_NAME + '=([^;]+)'));
+    if (match) gclid = decodeURIComponent(match[1]);
+  }
+
+  // 3. If we have a gclid, store it in a cookie (90 days)
+  if (gclid) {
+    var expires = new Date(Date.now() + COOKIE_DAYS * 864e5).toUTCString();
+    document.cookie = COOKIE_NAME + '=' + encodeURIComponent(gclid) + '; expires=' + expires + '; path=/; SameSite=Lax';
+  }
+
+  // 4. Update all Stripe links to include client_reference_id
+  if (gclid) {
+    var stripeUrl = STRIPE_BASE + '?client_reference_id=' + encodeURIComponent(gclid);
+    document.querySelectorAll('a[href*="buy.stripe.com"]').forEach(function(a) {
+      a.href = stripeUrl;
+    });
+  }
+})();
+</script>
+
 <!-- Privacy Policy Modal -->
 <style id="lp4-modal-css">
 .lp4-modal-overlay {
